@@ -7,14 +7,14 @@ using namespace std;
 
 int main() {
 	Polynomial mypolynomial; 
-	int coeff, exp; 
+	int coeff, expon; 
 
 	/*FILE INPUT*/
 	ifstream file; 
 	file.open("file2.txt");
 
-	while (file >> coeff >> exp) {
-		mypolynomial.addTerm(coeff, exp);
+	while (file >> coeff >> expon) {
+		mypolynomial.addTerm(coeff, expon);
 	}
 	file.close();
 
