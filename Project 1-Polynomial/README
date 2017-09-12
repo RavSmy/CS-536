@@ -3,5 +3,11 @@ This program should use ADT to input and output polynomials.
 It stores polynomials from files into arrays structures in a class, then outputs information about them. 
 
 
+--- PROGRAM ---
+polynomial.cpp
+polynomial.h
+Main.cpp
+
+--- TEST DATA --- 
 file1.txt, file2.txt -- sample input
 output.txt -- output from file1.txt & file2.txt
