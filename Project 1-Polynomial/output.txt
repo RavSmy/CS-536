@@ -1,0 +1,23 @@
+--- FILE 1 ---
+Degree:         5
+# terms:        4
+coeff(0):       9
+coeff(1):       0
+coeff(2):       -1
+coeff(3):       7
+coeff(4):       0
+value(1):       19
+value(2):       189
+
+--- FILE 2 ---
+Degree:         7
+# terms:        5
+coeff(0):       -11
+coeff(1):       0
+coeff(2):       5
+coeff(3):       -3
+coeff(4):       1
+coeff(5):       0
+coeff(6):       0
+value(1):       2
+value(2):       1281
