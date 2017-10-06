@@ -2,6 +2,7 @@
 #define DOUBLY_LINKED_LIST
 
 #include "Node.h"
+#include "LinkedList.h"
 #include <string>
 using namespace std;
 
@@ -20,12 +21,15 @@ private:
 public:
 	DoublyLinkedList();
 	// Copy constructor and destructor are supplied by compiler
+    DoublyLinkedList(const DoublyLinkedList &obj); // Deep copy constructor
+    DoublyLinkedList(const LinkedList &obj); // LL to DLL
 
 	bool isEmpty() const;
 	int getLength() const;
 	bool insert(int newPosition, const ItemType& newEntry);
 	bool remove(int position);
 	void clear();
+    void reverse(); 
 
 	ItemType getEntry(int position) const;
 
@@ -34,4 +38,4 @@ public:
 	virtual ~DoublyLinkedList();
 }; // end ArrayList
 
-#endif 
+#endif -
