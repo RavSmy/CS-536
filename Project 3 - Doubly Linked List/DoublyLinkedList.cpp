@@ -6,7 +6,59 @@ DoublyLinkedList::DoublyLinkedList() : headPtr(nullptr), itemCount(0), tailPtr(n
 {
 }  // end default constructor
 
+DoublyLinkedList::DoublyLinkedList(const DoublyLinkedList &obj)
+{
+    if(obj.head == NULL) head = NULL;
+    else 
+    {
+        headPtr = new Node(obj.headPtr->getItem());
+        Node *current = headPtr;
+        Node *currentObj = obj.headPtr;
+        while (currentObj->getNext() != NULL) 
+        {
+            current->setNext(currentObj->getNext());
+            current->setPrev(currentObj->getPrev());
+            current = current->getNext(); 
+            currentObj = currentObj->getNext();
+        } 
+    } 
 
+}//end deep copy constructor
+
+DoublyLinkedList::DoublyLinkedList(const LinkedList &obj) 
+{
+    if(obj.head == NULL) head = NULL;
+    else 
+    {
+        headPtr = new Node(obj.headPtr->getItem());
+        Node *current = headPtr;
+        Node *currentObj = obj.headPtr;
+        while (currentObj->getNext() != NULL) 
+        {
+            current->setNext(new Node(currentObj->getNext()->getItem()));
+            current->getNext()->setPrev(current);
+            current = current->getNext(); 
+            currentObj = currentObj->getNext();
+        }  
+    }  
+} // end LL to DLL
+
+void DoublyLinkedList::reverse()
+{
+    Node* temp = headPtr; 
+    Node* current = headPtr; 
+    headPtr = tailPtr;
+    tailPtr = temp;
+    
+    do while(current->getNext() != NULL)
+    {
+        temp = current->getNext();
+        current->setNext(current->getPrev());
+        current->setPrev(temp);
+        current = current->getPrev(); 
+    }
+
+} // end reverse
 void DoublyLinkedList::clear()
 {
 	while (!isEmpty())
