@@ -4,25 +4,13 @@ using namespace std;
 
 int main()
 {
-	DoublyLinkedList list;
+	LinkedList slist; 
+    slist.insert(1,"aa");
+    slist.insert(2,"bb");
+    slist.insert(3,"cc");
+    slist.insert(4,"dd");
 
-	list.insert(1,'a');
-	list.insert(2, 'b');
-	list.insert(3, 'c');
-	list.insert(4, 'd');
-	
-	cout << "list: ";
-	for (int i = 1; i <= list.getLength(); i++)
-	{
-		cout << i;
-		cout << list.getEntry(i) << " ";
-	}
+    DoublyLinkedList dlist(slist); 
 
-
-	cout << endl;
-
-	list.clear();
-	cout << "length [0]: " << list.getLength() << endl;
-	cout << "isEmpty [1]: " << list.isEmpty() << endl;
 
 }
