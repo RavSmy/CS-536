@@ -1,62 +1,66 @@
 #include "DoublyLinkedList.h"
 #include <cassert>
-using namespace std; 
+#include <iostream>
+using namespace std;
 
 DoublyLinkedList::DoublyLinkedList() : headPtr(nullptr), itemCount(0), tailPtr(nullptr)
 {
 }  // end default constructor
 
-DoublyLinkedList::DoublyLinkedList(const DoublyLinkedList &obj)
-{
-    if(obj.head == NULL) head = NULL;
-    else 
-    {
-        headPtr = new Node(obj.headPtr->getItem());
-        Node *current = headPtr;
-        Node *currentObj = obj.headPtr;
-        while (currentObj->getNext() != NULL) 
-        {
-            current->setNext(currentObj->getNext());
-            current->setPrev(currentObj->getPrev());
-            current = current->getNext(); 
-            currentObj = currentObj->getNext();
-        } 
-    } 
 
-}//end deep copy constructor
-
-DoublyLinkedList::DoublyLinkedList(const LinkedList &obj) 
+DoublyLinkedList::DoublyLinkedList(const DoublyLinkedList &obj) : itemCount(obj.itemCount)
 {
-    if(obj.head == NULL) head = NULL;
-    else 
-    {
-        headPtr = new Node(obj.headPtr->getItem());
-        Node *current = headPtr;
-        Node *currentObj = obj.headPtr;
-        while (currentObj->getNext() != NULL) 
-        {
-            current->setNext(new Node(currentObj->getNext()->getItem()));
-            current->getNext()->setPrev(current);
-            current = current->getNext(); 
-            currentObj = currentObj->getNext();
-        }  
-    }  
-} // end LL to DLL
+	if (obj.headPtr == nullptr) {
+		headPtr = nullptr;
+	}
+	else {
+		headPtr = new Node(obj.headPtr->getItem());
+		Node *currentObj = obj.headPtr;
+		Node *current = headPtr;
+		while (currentObj->getNext() != NULL)
+		{
+			current->setNext(new Node(currentObj->getNext()->getItem()));
+			current->getNext()->setPrev(current);
+			current = current->getNext();
+			currentObj = currentObj->getNext();
+		}	
+		tailPtr = current->getPrev();
+	}
+} //end deep copy constructor
+
+DoublyLinkedList::DoublyLinkedList(const LinkedList &obj) :itemCount(obj.getLength())
+{
+	if (obj.getHeadPtr() == nullptr) {
+		headPtr = nullptr;
+	}
+	else {
+		headPtr = new Node(obj.getHeadPtr()->getItem());
+		Node *currentObj = obj.getHeadPtr();
+		Node *current = headPtr;
+		for (int i = 1; i < itemCount; i++)
+		{
+			current->setNext(new Node(obj.getEntry(i + 1)));
+			current->getNext()->setPrev(current);
+			current = current->getNext();
+			currentObj = currentObj->getNext();
+		}
+		tailPtr = current;
+	}
+} // end LL to DLL 
 
 void DoublyLinkedList::reverse()
 {
-    Node* temp = headPtr; 
-    Node* current = headPtr; 
-    headPtr = tailPtr;
-    tailPtr = temp;
-    
-    do while(current->getNext() != NULL)
-    {
-        temp = current->getNext();
-        current->setNext(current->getPrev());
-        current->setPrev(temp);
-        current = current->getPrev(); 
-    }
+	Node *ptr = headPtr;
+	while (ptr != nullptr) {
+		Node *tmp = ptr->getNext();
+		ptr->setNext(ptr->getPrev());
+		ptr->setPrev(tmp); 
+		if (tmp == nullptr) {
+			tailPtr = headPtr;
+			headPtr = ptr;
+		}
+		ptr = tmp;
+	}
 
 } // end reverse
 void DoublyLinkedList::clear()
@@ -65,6 +69,17 @@ void DoublyLinkedList::clear()
 		remove(1);
 }  // end clear
 
+vector<ItemType> DoublyLinkedList::toVector(bool reverse)
+{
+	vector<ItemType> list; 
+	Node* current = (reverse ? tailPtr : headPtr);
+	while (current != nullptr) 
+	{
+		list.push_back(current->getItem());
+		current = (reverse ? current->getPrev() : current->getNext());
+	}
+	return list; 
+}
 
 int DoublyLinkedList::getLength() const
 {
@@ -82,8 +97,10 @@ ItemType DoublyLinkedList::getEntry(int position) const
 	bool ableToGet = (position >= 1) && (position <= itemCount);
 	if (ableToGet)
 	{
+		
 		Node* nodePtr = getNodeAt(position);
 		return nodePtr->getItem();
+		
 	}
 	else
 	{
@@ -107,7 +124,7 @@ bool DoublyLinkedList::insert(int newPosition, const ItemType& newEntry)
 		if (newPosition == 1)
 		{
 			// Insert new node at beginning of chain
-			newNodePtr->setNext(headPtr); 
+			newNodePtr->setNext(headPtr);
 			//Prev is already nullptr
 			headPtr = newNodePtr;
 		}
@@ -119,8 +136,8 @@ bool DoublyLinkedList::insert(int newPosition, const ItemType& newEntry)
 			// Insert new node after node to which prevPtr points
 			newNodePtr->setNext(newNodePtr->getPrev()->getNext());
 			newNodePtr->getPrev()->setNext(newNodePtr);
-	
-			if (newPosition = getLength()) tailPtr = newNodePtr; 
+
+			if (newPosition = getLength()) tailPtr = newNodePtr;
 		}
 		itemCount++; // Increase count of entries
 	}
@@ -142,8 +159,8 @@ bool DoublyLinkedList::remove(int position)
 			headPtr = headPtr->getNext();
 			// Set previous to null
 			if (headPtr != nullptr)
-				headPtr->setPrev(nullptr);	
-			
+				headPtr->setPrev(nullptr);
+
 		}
 		else
 		{
@@ -156,12 +173,12 @@ bool DoublyLinkedList::remove(int position)
 			// Disconnect indicated node from chain by connecting the
 			// prior node with the one after
 			prevPtr->setNext(curPtr->getNext());
-			curPtr->getNext()->setPrev(prevPtr); 
+			curPtr->getNext()->setPrev(prevPtr);
 		}
 
 		// Return node to system
 		curPtr->setNext(nullptr);
-		curPtr->setPrev(nullptr); 
+		curPtr->setPrev(nullptr);
 		delete curPtr;
 		curPtr = nullptr;
 		itemCount--; // Decrease count of entries
