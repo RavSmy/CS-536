@@ -1,3 +1,5 @@
+// CS 536, PROJECT 3, Ravela Smyth -- "DoublyLinkedList.h.cpp"
+
 #ifndef DOUBLY_LINKED_LIST
 #define DOUBLY_LINKED_LIST
 

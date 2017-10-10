@@ -1,3 +1,5 @@
+// CS 536, PROJECT 3, Ravela Smyth -- "Node.h"
+
 #ifndef NODE_
 #define NODE_
 

@@ -1,3 +1,5 @@
+// CS 536, PROJECT 3, Ravela Smyth -- "Node.cpp"
+
 #include "Node.h"
 
 Node::Node() : next(nullptr), prev(nullptr)

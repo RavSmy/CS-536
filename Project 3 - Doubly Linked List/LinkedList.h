@@ -1,3 +1,5 @@
+// CS 536, PROJECT 3, Ravela Smyth -- "LinkedList.h"
+
 #ifndef LINKED_LIST_
 #define LINKED_LIST_
 

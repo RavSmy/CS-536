@@ -1,3 +1,5 @@
+// CS 536, PROJECT 3, Ravela Smyth -- "LinkedList.cpp"
+
 #include "LinkedList.h"
 #include <cassert>
 
