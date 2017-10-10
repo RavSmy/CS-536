@@ -1,0 +1,8 @@
+Step 3 dlist:      aa   bb   cc   dd
+Step 4 dlist:      dd   cc   bb   aa
+Step 6 dlist:      dd   cc   bb   aa
+Step 8 dlist2:     dd   cc   bb   aa
+Step 10 dlist2:    aa   bb   cc   dd
+Step 11 dlist:     dd   cc   bb   aa
+Press any key to continue . . .
+
