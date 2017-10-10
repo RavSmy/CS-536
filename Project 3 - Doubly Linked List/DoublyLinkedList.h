@@ -3,10 +3,12 @@
 
 #include "Node.h"
 #include "LinkedList.h"
+#include <vector>
+
 #include <string>
 using namespace std;
 
-typedef char ItemType;
+typedef string ItemType;
 
 class DoublyLinkedList
 {
@@ -21,19 +23,20 @@ private:
 public:
 	DoublyLinkedList();
 	// Copy constructor and destructor are supplied by compiler
-    DoublyLinkedList(const DoublyLinkedList &obj); // Deep copy constructor
-    DoublyLinkedList(const LinkedList &obj); // LL to DLL
+	DoublyLinkedList(const DoublyLinkedList &obj); // Deep copy constructor
+	DoublyLinkedList(const LinkedList &obj); // LL to DLL
 
 	bool isEmpty() const;
 	int getLength() const;
 	bool insert(int newPosition, const ItemType& newEntry);
 	bool remove(int position);
 	void clear();
-    void reverse(); 
+	void reverse();
 
 	ItemType getEntry(int position) const;
-
 	ItemType replace(int position, const ItemType& newEntry);
+
+	vector<ItemType> toVector(bool reverse); 
 
 	virtual ~DoublyLinkedList();
 }; // end ArrayList
