@@ -1,0 +1,9 @@
+This program should use stacks in order to conver infix to postfix and prefix expressions, and also to solve for the values. 
+
+
+
+--- PROGRAM ---
+Project4Smyth.cpp
+
+--- TEST DATA --- 
+input.txt
