@@ -85,13 +85,13 @@ double evaluatePostfix(string exp) {
 		    switch (exp[i])
 			{
 			case '+':
-			  hold.push(A+B);      
+			  hold.push(B+A);      
 			  break;
 			case '-':
-			  hold.push(A-B);
+			  hold.push(B-A);
 			  break;
 			case '*':
-			  hold.push(A*B);
+			  hold.push(B*A);
 			  break;
 			case '/':
 			  hold.push(B/A);
