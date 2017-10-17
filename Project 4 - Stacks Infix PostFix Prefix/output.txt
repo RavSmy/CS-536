@@ -1,0 +1,8 @@
+fix                   prefix          postfix         value
+
+A+B*C                   +A*BC           ABC*+           14
+(A+B)*C                 *+ABC           AB+C*           20
+A*(B+C*D)+E             +*A+B*CDE       ABCD*+*E+       52
+A*((E/B)+C)             *A+/EBC         AEB/C+*         12
+(A-B)/C*(D+E)           */-ABC+DE       AB-C/DE+*       -2.75
+(E-(C+D))/A             /-E+CDA         ECD+-A/         -1.5
