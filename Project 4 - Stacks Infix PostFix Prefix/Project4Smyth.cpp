@@ -71,7 +71,7 @@ string postfixToPrefix(string exp)
 	return hold.top(); 
 }
 
-bool precedence(char a, char b) {return (b == '*' || b == '/') ? true:false;}
+bool precedence(char a, char b) { return (b == '*' || b == '/') ? false : true; }
 
 
 double evaluatePostfix(string exp) {
