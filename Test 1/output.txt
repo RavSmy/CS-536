@@ -1,0 +1,7 @@
+STEP 2 : Stack 1 empty? 1   Stack 2 empty? 1
+STEP 5 : Stack 1 full? 1   Stack 2 full? 1
+STEP 6 : Top of    Stack 1: 40   Stack 2: 600
+STEP 9 : Top of    Stack 1: 20   Stack 2: 300
+STEP 11 : Stack 1 empty? 1   Stack 2 empty? 0
+Press any key to continue . . .
+
