@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string> 
 #include <fstream>
-using namespace std;
+using namespace std;        
 
 int count(int arr[], int target, int first, int last);
 bool isPal(string s, int first, int last);
