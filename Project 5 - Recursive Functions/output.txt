@@ -1,0 +1,25 @@
+Counts:
+{ 3, 9, 2, 7, 9, 4, 4, 3, 9 } (target 9) -- 3
+{ 3, 9, 2, 7, 9, 4, 4, 3, 9 } (target 4) -- 2
+{ 6 } (target 6) -- 1
+{ 4, 6, 2, 3 } (target 9) -- 0
+{ 12 } (target 5) -- 0
+
+Palindrome:
+radar -- 1
+x -- 1
+aba-- 1
+xx-- 1
+ab -- 0
+abc -- 0
+123321 -- 1
+xx1x -- 0
+
+Reverse:
+Hello World -- World Hello
+Goodbye -- Goodbye
+When in the course of human events -- events human of course the in When
+Press any key to continue . . .
+
+
+
