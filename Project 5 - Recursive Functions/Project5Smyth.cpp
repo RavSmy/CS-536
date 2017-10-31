@@ -1,3 +1,5 @@
+// CS 536, PROJECT 5, Ravela Smyth  
+
 #include <iostream>
 #include <string> 
 #include <fstream>
