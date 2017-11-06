@@ -36,22 +36,18 @@ void sort(int numbers[], int size){
     queue <int> digits[10]; 
     int digit; 
 
-
     for(int k = 0 ; k < 3; k++){
-
         // Queue them in ith order
         for (int i = 0 ; i < size ; i++) {
             // get digit
             digit = digAti(numbers[i], k);
             digits[digit].push(numbers[i]);
         }
-
         // Deque
         for (int p = 0, i=0 ; p < 10 ; p++) {
             while (!digits[p].empty()) { numbers[i++]=digits[p].front(); digits[p].pop();} 
         } 
-
-   }
+    }
 
 }
 
@@ -59,5 +55,4 @@ int digAti(int num, int i){
     if ( i == 0) return (num%100)%10;
     else if (i == 1) return (num%100)/10;
     return num / 100;    
-
 }
