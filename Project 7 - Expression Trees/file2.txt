@@ -1,0 +1,5 @@
+A B+C*
+AB C*+
+ABC D* +*E+
+ ED/ ACE/+-
+A BC*+DE *D +G*+

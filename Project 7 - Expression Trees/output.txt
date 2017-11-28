@@ -1,0 +1,19 @@
+A B+C* ---- AB+C*
+AB C*+ ---- ABC*+
+ABC D* +*E+ ---- ABCD*+*E+
+ ED/ ACE/+- ---- ED/ACE/+-
+A BC*+DE *D +G*+ ---- ABC*+DE*D+G*+
+Press any key to continue . . .
+
+
+
+
+
+
+
+
+
+
+
+
+
