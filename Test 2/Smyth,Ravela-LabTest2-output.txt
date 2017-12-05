@@ -1,0 +1,26 @@
+equal(nullptr, nullptr): 1
+equal(nullptr, root1): 0
+equal(root1, root1): 1
+equal(root1, root2): 0
+equal(root1, root2->left): 0
+equal(root1->right, root2->right): 1
+findmax(nullptr): -1
+findmax(&tree11): 7
+findmax(&tree21): 9
+Press any key to continue . . .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
